@@ -5,7 +5,6 @@ fn main(
     root: pub Field,
     nullifier_hash: pub Field,
     recipient: pub Field,
-
     // Private inputs
     nullifier: Field,
     secret: Field,
@@ -18,11 +17,11 @@ fn main(
     // check that the nullifier matches the nullifier hash
     let computed_nullifier_hash: Field = poseidon2::Poseidon2::hash([nullifier], 1);
     assert(computed_nullifier_hash == nullifier_hash);
-    
+
     // check that the commitment is in the Merkle tree
     let computed_root: Field = merkle_tree::compute_merkle_root(commitment, merkle_proof, is_even);
     assert(computed_root == root);
 
-    // let recipient_binding = recipient * recipient;
-    // assert(recipient_binding == recipient * recipient);
+    let recipient_binding = recipient * recipient;
+    assert(recipient_binding == recipient * recipient);
 }
