@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+/**
+ * @title Incremental Merkle Tree
+ * @dev This contract implements an incremental Merkle tree with Poseidon hash function.
+ *      It is used to store commitments and verify proofs in the Mixer contract.
+ *
+ * @author Cyfrin
+ * @notice This contract is part of the educational adaptation of Tornado Cash.
+ */
+ 
 import {Field} from "@poseidon/src/Field.sol";
 import {Poseidon2} from "@poseidon/src/Poseidon2.sol";
 
