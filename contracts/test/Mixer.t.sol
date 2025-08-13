@@ -106,7 +106,7 @@ contract ETHTornadoTest is Test {
         (bytes32 _commitment, bytes32 _nullifier, bytes32 _secret) = _getCommitment();
         console.log("Commitment: ");
         console.logBytes32(_commitment);
-        vm.expectEmit(true, false, false, true);
+        vm.expectEmit(true, false, false, true); //commitment, no, no, same date
         emit Mixer.Deposit(_commitment, 0, block.timestamp);
         mixer.deposit{value: mixer.DENOMINATION()}(_commitment);
 
